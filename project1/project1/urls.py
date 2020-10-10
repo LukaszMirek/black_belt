@@ -15,7 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from blackbelt.views import (
+    LoginView,
+    MainView,
+    GroupAddView,
+    GroupsView,
+    StudentsView,
+    StudentAddView,
+    StudentEditView,
+    LogoutView,
+    GroupEditView,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("login/", LoginView.as_view(), name="login"),
+    path("main/", MainView.as_view(), name="main"),
+    path("group_add/", GroupAddView.as_view(), name="group-add"),
+    path("groups/", GroupsView.as_view(), name="groups"),
+    path("students/", StudentsView.as_view(), name="students"),
+    path("student_add/", StudentAddView.as_view(), name="student-add"),
+    path("student_edit/<pk>", StudentEditView.as_view(), name="student-edit"),
+    path("logout/", LogoutView.as_view(), name="logout"),
+    path("group_edit/<pk>", GroupEditView.as_view(), name="group-edit"),
 ]

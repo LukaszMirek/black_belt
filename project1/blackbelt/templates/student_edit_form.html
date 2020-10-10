@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block title %}student edit{% endblock %}
+
+{% block content %}
+<p>EDYTUJ UCZNIA:</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="zapisz">
+</form>
+{% endblock %}

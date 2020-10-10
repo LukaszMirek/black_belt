@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block title %}groups{% endblock %}
+
+{% block content %}
+<h1>GRUPY:</h1>
+<ul>
+{% for group in groups %}
+<li>{{ group.name }}, TRENER: {{ group.trainer }} <a href="/group_edit/{{ group.id }}">edytuj</a></li>
+{% endfor %}
+{% endblock %}
+</ul>

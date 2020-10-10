@@ -26,22 +26,27 @@ BELT_SYSTEM = (
 
 
 class Group(models.Model):
-    name = models.CharField(max_length=64, unique=True)
-    trainer = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True, verbose_name="Nazwa grupy")
+    trainer = models.CharField(max_length=64, verbose_name="Trener")
+
+    def __str__(self):
+        return self.name
 
 
 class Student(models.Model):
-    name = models.CharField(max_length=64, unique=True)
-    phone = models.IntegerField()
-    email = models.EmailField()
+    name = models.CharField(max_length=64, unique=True, verbose_name="Imię i nazwisko")
+    phone = models.IntegerField(verbose_name="Telefon")
+    email = models.EmailField(verbose_name="e-mail")
     groups = models.ManyToManyField(Group)
-    notes = models.TextField()
+    notes = models.TextField(verbose_name="Adnotacje")
 
 
 class StudentBelt(models.Model):
-    belt = models.CharField(choices=BELT_SYSTEM, default=1)
-    student = models.ForeignKey(Student)
-    promotion_date = models.DateTimeField(auto_now=True)
+    belt = models.CharField(
+        choices=BELT_SYSTEM, default=1, max_length=64, verbose_name="Pas"
+    )
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    promotion_date = models.DateTimeField(auto_now=True, verbose_name="Data otrzymania")
 
 
 class PresenceList(models.Model):
@@ -52,5 +57,4 @@ class PresenceList(models.Model):
 
 class Payments(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    month = models.DateField()
-    paid = models.BooleanField(default=False)
+    month = models.DateField(verbose_name="Miesiąc")

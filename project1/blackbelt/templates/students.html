@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block title %}groups{% endblock %}
+
+{% block content %}
+<h1>UCZNIOWIE:</h1>
+<ul>
+{% for student in students %}
+<li>{{ student.name }}, Grupa: {{ student.groups }} <a href="/student_edit/{{ student.id }}">edytuj</a></li>
+{% endfor %}
+{% endblock %}
+</ul>

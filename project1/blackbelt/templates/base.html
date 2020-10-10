@@ -1,0 +1,24 @@
+{% load static %}
+
+<!doctype html>
+<html>
+    <head><meta charset="utf-8">
+    <title>login</title>
+    </head>
+    
+    <body>
+    <div style="text-align:center">  
+    <img  src="{% static 'bb.png' %}" alt="logo" width=300 /> 
+    </div>
+        <h1 style="text-align:center">Black Belt System</h1>
+        <form action="{% url 'login' %}"method="POST">
+            {% csrf_token %}
+            <table style="margin-left:auto; margin-right:auto">
+                {{ form }}
+            </table>
+            <div style="text-align:center">
+            <input type="submit" value="Zaloguj" />
+            </div>
+        </form>
+    </body>
+</html>

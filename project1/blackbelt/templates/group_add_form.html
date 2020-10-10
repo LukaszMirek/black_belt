@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block title %}group add{% endblock %}
+
+{% block content %}
+<p>DODAJ GRUPĘ:</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="dodaj">
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+
+{% block title %}student add{% endblock %}
+
+{% block content %}
+<p>DODAJ UCZNIA:</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="dodaj">
+</form>
+{% endblock %}
