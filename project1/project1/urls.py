@@ -29,6 +29,7 @@ from blackbelt.views import (
     GroupDetailsView,
     PresenceView,
     StudentDeleteView,
+    GroupDeleteView,
 )
 
 urlpatterns = [
@@ -53,4 +54,5 @@ urlpatterns = [
     path("presence/", PresenceView.as_view(), name="presence"),
     path("student_edit/<pk>", StudentEditView.as_view(), name="student-edit"),
     path("student_delete/<pk>", StudentDeleteView.as_view(), name="student-delete"),
+    path("group_delete/<pk>", GroupDeleteView.as_view(), name="group-delete"),
 ]

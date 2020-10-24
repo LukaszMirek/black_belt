@@ -15,6 +15,7 @@ from extra_views import (
     UpdateWithInlinesView,
     InlineFormSetFactory,
 )
+from django.core.mail import send_mail
 
 
 class LoginView(View):
@@ -135,6 +136,11 @@ class GroupDetailsView(LoginRequiredMixin, View):
         )
 
 
+class GroupDeleteView(DeleteView):
+    model = Group
+    success_url = reverse_lazy("groups")
+
+
 class PresenceView(LoginRequiredMixin, View):
     def get(self, request):
         form = PresenceForm()
@@ -143,10 +149,10 @@ class PresenceView(LoginRequiredMixin, View):
     def post(self, request):
         form = PresenceForm(request.POST)
         if form.is_valid():
-            student = form.cleaned_data["student"]
-            day = form.cleaned_data["day"]
-            print(student, day)
-            # PresenceList.objects.create(**form.cleaned_data)
+            # student = form.cleaned_data["student"]
+            # day = form.cleaned_data["day"]
+            # print(student, day)
+            PresenceList.objects.create(**form.cleaned_data)
             return redirect("main")
         else:
             return redirect("presence")

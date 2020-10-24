@@ -8,18 +8,30 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="Hasło:", widget=forms.PasswordInput)
 
 
-# class PresenceForm(forms.Form):
+class PresenceForm(forms.Form):
+    student = forms.ModelChoiceField(
+        queryset=Student.objects.all(),
+        label="Uczeń",
+        # widget=forms.CheckboxSelectMultiple,
+    )
+    day = forms.DateField(label="Data", widget=forms.SelectDateWidget)
+    present = forms.BooleanField(label="Obecny?", required=False)
+
+
+# class PresenceForm(ModelForm):
+#     class Meta:
+#         model = PresenceList
+#         fields = "__all__"
+
+
+# class PaymentForm(forms.Form):
 #     student = forms.ModelChoiceField(
 #         queryset=Student.objects.all(),
 #         label="Uczeń",
-#         widget=forms.CheckboxSelectMultiple,
 #     )
-#     day = forms.DateField(label="Data", widget=forms.SelectDateWidget)
-# present = forms.BooleanField(label="Obecny?", required=False)
-class PresenceForm(ModelForm):
-    class Meta:
-        model = PresenceList
-        fields = "__all__"
+#     month = forms.DateField(
+#         required=False, widget=MonthYearWidget(years=xrange(2020, 2030))
+#     )
 
 
 class StudentForm(ModelForm):

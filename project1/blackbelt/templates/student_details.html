@@ -10,7 +10,7 @@
 <p>Pas: {{ student.get_belt_display }}</p>
 <p>Notatki: {{ student.notes }}</p>
 <p>Opłaty:</p>
-<p>Obecności:</p>
+<p>Obecności:{% for data in student.presencelist_set.all %} {{ data.day }};{% endfor %}</p>
 <a href="/student_edit/{{ student.id }}"><button>Edytuj</button></a>
 <a href="/student_delete/{{ student.id }}"><button>Usuń</button></a>
 {% endblock %}
