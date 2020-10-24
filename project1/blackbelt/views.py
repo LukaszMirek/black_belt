@@ -156,3 +156,9 @@ class PresenceView(LoginRequiredMixin, View):
             return redirect("main")
         else:
             return redirect("presence")
+
+
+class SendMailView(LoginRequiredMixin, View):
+    def get(self, request):
+        form = EmailForm()
+        return render(request, "send_email.html", {"form": form})
