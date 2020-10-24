@@ -1,0 +1,2 @@
+Search=function(){},Search.binarySearch=function(r,e,n,t){if(!t||0==t.length)return-1;for(var a=0,c=t.length-1;a<=c;){var h=parseInt((a+c)/2),o=t[h],i=r(o,n);if(i>0)c=h-1;else{if(!(i<0)){for(var u=e?1:-1,f=h+u;f>=0&&f<t.length&&0==(i=r(t[f],n));)h=f,f+=u;return h}a=h+1}}return e?a===t.length?-1:a:c},Search.compareNumber=Functional.op["-"],Search.compareProperty=function(r,e,n){return r(this[e],n)};
+//# sourceMappingURL=search.min.js.map

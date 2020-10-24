@@ -1,0 +1,2 @@
+!function(r){"use strict";var t=r(document.documentElement);r.dispatcher=r.dispatcher||{};var e={trigger:function(e,n,i){return i?r(i).trigger(e,n):t.trigger(e,n)},on:function(e,n,i){return t.on(e,r.proxy(n,i||t))},off:function(r){return t.off(r)}};r.extend(!0,r.dispatcher,e)}(jQuery);
+//# sourceMappingURL=dispatcher.min.js.map

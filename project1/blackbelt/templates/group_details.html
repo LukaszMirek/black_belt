@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block title %}{{ group }}{% endblock %}
+
+{% block content %}
+<h1>{{ group }}</h1>
+<p>Trener: {{ group.trainer }}</p>
+<p>Uczniowie:</p>
+<ul>
+{% for student in students %}
+<li>{{ student.name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

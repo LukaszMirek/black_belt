@@ -1,14 +1,20 @@
 from django.views import View
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
+from django.views.generic import TemplateView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import LoginForm
-from .models import Group, Student
+from .forms import LoginForm, PresenceForm, StudentForm
+from .models import Group, Student, PresenceList
+from extra_views import (
+    CreateWithInlinesView,
+    UpdateWithInlinesView,
+    InlineFormSetFactory,
+)
 
 
 class LoginView(View):
@@ -69,6 +75,12 @@ class StudentsView(LoginRequiredMixin, View):
         return render(request, "students.html", {"students": students})
 
 
+class StudentDetailsView(LoginRequiredMixin, View):
+    def get(self, request, student_id):
+        student = Student.objects.get(pk=student_id)
+        return render(request, "student_details.html", {"student": student})
+
+
 class StudentEditView(LoginRequiredMixin, UpdateView):
     model = Student
     fields = "__all__"
@@ -76,8 +88,65 @@ class StudentEditView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy("students")
 
 
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy("students")
+
+
+# class StudentEditView(LoginRequiredMixin, UpdateView):
+#     # def get(self, request, student_id):
+#     #     student = Student.objects.get(pk=student_id)
+#     #     form = BeltForm()
+#     model = Student
+#     fields = "__all__"
+#     template_name = "student_edit_form.html"
+#     success_url = reverse_lazy("students")
+# class BeltInline(InlineFormSetFactory):
+#     model = StudentBelt
+#     fields = ["belt"]
+
+
+# class StudentEditView(LoginRequiredMixin, UpdateWithInlinesView):
+#     model = Student
+#     inlines = [BeltInline]
+#     fields = "__all__"
+#     template_name = "student_edit_form.html"
+
+# #     success_url = reverse_lazy("students")
+# class StudentEditView(LoginRequiredMixin, TemplateView):
+#     student_form = StudentForm(instance=p)
+#     belt_form = BeltForm(instance=p)
+#     template_name = "student_edit_form.html"
+
+
 class GroupEditView(LoginRequiredMixin, UpdateView):
     model = Group
     fields = "__all__"
     template_name = "group_edit_form.html"
     success_url = reverse_lazy("groups")
+
+
+class GroupDetailsView(LoginRequiredMixin, View):
+    def get(self, request, group_id):
+        group = Group.objects.get(pk=group_id)
+        students = group.student_set.all()
+        return render(
+            request, "group_details.html", {"group": group, "students": students}
+        )
+
+
+class PresenceView(LoginRequiredMixin, View):
+    def get(self, request):
+        form = PresenceForm()
+        return render(request, "presence.html", {"form": form})
+
+    def post(self, request):
+        form = PresenceForm(request.POST)
+        if form.is_valid():
+            student = form.cleaned_data["student"]
+            day = form.cleaned_data["day"]
+            print(student, day)
+            # PresenceList.objects.create(**form.cleaned_data)
+            return redirect("main")
+        else:
+            return redirect("presence")

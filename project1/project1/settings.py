@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "blackbelt",
+    "extra_views",
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,11 @@ WSGI_APPLICATION = "project1.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "HOST": "127.0.0.1",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "blackbelt_db",
+        "USER": "postgres",
+        "PASSWORD": "coderslab",
     }
 }
 

@@ -1,0 +1,359 @@
+var jsRoutes = {}; (function(_root){
+var _nS = function(c,f,b){var e=c.split(f||"."),g=b||_root,d,a;for(d=0,a=e.length;d<a;d++){g=g[e[d]]=g[e[d]]||{}}return g}
+var _qS = function(items){var qs = ''; for(var i=0;i<items.length;i++) {if(items[i]) qs += (qs ? '&' : '') + items[i]}; return qs ? ('?' + qs) : ''}
+var _s = function(p,s){return p+((s===true||(s&&s.secure))?'s':'')+'://'}
+var _wA = function(r){return {ajax:function(c){c=c||{};c.url=r.url;c.type=r.method;return jQuery.ajax(c)}, method:r.method,type:r.method,url:r.url,absoluteURL: function(s){return _s('http',s)+'flow.polar.com'+r.url},webSocketURL: function(s){return _s('ws',s)+'flow.polar.com'+r.url}}}
+_nS('controllers.ApplicationTask'); _root['controllers']['ApplicationTask']['login'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "login"})
+        }
+      ;
+_nS('controllers.register.RegisterTask'); _root['controllers']['register']['RegisterTask']['registerJSON'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "register.json"})
+        }
+      ;
+_nS('controllers.settings.PasswordTask'); _root['controllers']['settings']['PasswordTask']['changePassword'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/changePassword"})
+        }
+      ;
+_nS('controllers.settings.PasswordTask'); _root['controllers']['settings']['PasswordTask']['changePasswordViewStep1'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "settings/changePasswordStep1"})
+        }
+      ;
+_nS('controllers.settings.PasswordTask'); _root['controllers']['settings']['PasswordTask']['changePasswordViewStep2'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/changePasswordStep2"})
+        }
+      ;
+_nS('controllers.settings.account.ChangeUsernameTask'); _root['controllers']['settings']['account']['ChangeUsernameTask']['viewStep2'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/changeUsernameStep2"})
+        }
+      ;
+_nS('controllers.settings.account.ChangeUsernameTask'); _root['controllers']['settings']['account']['ChangeUsernameTask']['save'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/changeUsername"})
+        }
+      ;
+_nS('controllers.settings.SettingsTask'); _root['controllers']['settings']['SettingsTask']['precalcPhysicalInfo'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/precalcPhysicalInfo"})
+        }
+      ;
+_nS('controllers.settings.ThresholdTask'); _root['controllers']['settings']['ThresholdTask']['checkMaxHeartRate'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/checkMaxHeartRate"})
+        }
+      ;
+_nS('controllers.settings.ThresholdTask'); _root['controllers']['settings']['ThresholdTask']['thresholdDialog'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/thresholdDialog"})
+        }
+      ;
+_nS('controllers.settings.PhotoPickerTask'); _root['controllers']['settings']['PhotoPickerTask']['uploadTemporaryPhoto'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/uploadTemporaryPhoto"})
+        }
+      ;
+_nS('controllers.settings.PhotoPickerTask'); _root['controllers']['settings']['PhotoPickerTask']['uploadPhoto'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/uploadPhoto"})
+        }
+      ;
+_nS('controllers.settings.device.FirstTimeUseTask'); _root['controllers']['settings']['device']['FirstTimeUseTask']['savePhysicalInfo'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "settings/device/firstTime/savePhysicalInfo"})
+        }
+      ;
+_nS('controllers.settings.device.FirstTimeUseTask'); _root['controllers']['settings']['device']['FirstTimeUseTask']['validateDeviceSettings'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "settings/device/firstTime/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/save"})
+        }
+      ;
+_nS('controllers.settings.ProductsTask'); _root['controllers']['settings']['ProductsTask']['remove'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "settings/device/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/remove"})
+        }
+      ;
+_nS('controllers.settings.ProfileTask'); _root['controllers']['settings']['ProfileTask']['edit'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "settings/profile"})
+        }
+      ;
+_nS('controllers.diary.DayViewTask'); _root['controllers']['diary']['DayViewTask']['updateDailyData'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "training/updateDailyData"})
+        }
+      ;
+_nS('controllers.diary.MonthTask'); _root['controllers']['diary']['MonthTask']['index'] = 
+        function() {
+        
+          if (true) {
+            return _wA({method:"GET", url:"/" + "diary"})
+          }
+        
+        }
+      ;
+_nS('controllers.training.analysis.ExportTrainingSessionTask'); _root['controllers']['training']['analysis']['ExportTrainingSessionTask']['gpx'] = 
+        function(id0,compress1) {
+          return _wA({method:"GET", url:"/" + "training/analysis/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/export/gpx/" + encodeURIComponent((function(k,v) {return v})("compress", compress1))})
+        }
+      ;
+_nS('controllers.training.analysis.ExportTrainingSessionTask'); _root['controllers']['training']['analysis']['ExportTrainingSessionTask']['csv'] = 
+        function(id0,compress1) {
+          return _wA({method:"GET", url:"/" + "training/analysis/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/export/csv/" + encodeURIComponent((function(k,v) {return v})("compress", compress1))})
+        }
+      ;
+_nS('controllers.training.analysis.TrainingSessionTask'); _root['controllers']['training']['analysis']['TrainingSessionTask']['updateExerciseLaps'] = 
+        function(exerciseId0) {
+          return _wA({method:"POST", url:"/" + "training/analysis/updateExerciseLaps/" + encodeURIComponent((function(k,v) {return v})("exerciseId", exerciseId0))})
+        }
+      ;
+_nS('controllers.training.FitnessTestTask'); _root['controllers']['training']['FitnessTestTask']['showAsJson'] = 
+        function(date0,toFuture1) {
+          return _wA({method:"GET", url:"/" + "training/fitnessTest/" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("date", date0), (function(k,v){return k+'='+(!!v)})("toFuture", toFuture1)])})
+        }
+      ;
+_nS('controllers.training.FitnessTestTask'); _root['controllers']['training']['FitnessTestTask']['deleteTest'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "training/fitnessTest/delete/" + encodeURIComponent((function(k,v) {return v})("id", id0))})
+        }
+      ;
+_nS('controllers.settings.ProductsTask'); _root['controllers']['settings']['ProductsTask']['remove'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "settings/device/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/remove"})
+        }
+      ;
+_nS('controllers.ApplicationTask'); _root['controllers']['ApplicationTask']['privacyPolicy'] = 
+        function(scrollable0) {
+        
+          if (scrollable0 == "false") {
+            return _wA({method:"GET", url:"/" + "privacyPolicy"})
+          }
+        
+          if (true) {
+            return _wA({method:"GET", url:"/" + "privacyPolicy/" + encodeURIComponent((function(k,v) {return v})("scrollable", scrollable0))})
+          }
+        
+        }
+      ;
+_nS('controllers.register.RegisterTask'); _root['controllers']['register']['RegisterTask']['termsOfUse'] = 
+        function(scrollable0) {
+        
+          if (scrollable0 == "false") {
+            return _wA({method:"GET", url:"/" + "termsOfUse"})
+          }
+        
+          if (true) {
+            return _wA({method:"GET", url:"/" + "termsOfUse/" + encodeURIComponent((function(k,v) {return v})("scrollable", scrollable0))})
+          }
+        
+        }
+      ;
+_nS('controllers.pcs.reroute.FitnessTestRouteTask'); _root['controllers']['pcs']['reroute']['FitnessTestRouteTask']['showAsJson'] = 
+        function(date0,toFuture1) {
+          return _wA({method:"GET", url:"/" + "coach/training/fitnessTest/" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("date", date0), (function(k,v){return k+'='+(!!v)})("toFuture", toFuture1)])})
+        }
+      ;
+_nS('controllers.pcs.CoachTask'); _root['controllers']['pcs']['CoachTask']['termsOfService'] = 
+        function(ajax0) {
+        
+          if (ajax0 == false) {
+            return _wA({method:"GET", url:"/" + "coach/termsOfService"})
+          }
+        
+          if (ajax0 == true) {
+            return _wA({method:"GET", url:"/" + "coach/termsOfService/ajax"})
+          }
+        
+        }
+      ;
+_nS('controllers.pcs.group.TeamTask'); _root['controllers']['pcs']['group']['TeamTask']['cancelPendingInvitation'] = 
+        function(teamId0,invitationId1) {
+          return _wA({method:"GET", url:"/" + "coach/team/" + encodeURIComponent((function(k,v) {return v})("teamId", teamId0)) + "/invitation/" + encodeURIComponent((function(k,v) {return v})("invitationId", invitationId1)) + "/cancel"})
+        }
+      ;
+_nS('controllers.pcs.group.TeamTask'); _root['controllers']['pcs']['group']['TeamTask']['removeTeamMember'] = 
+        function(teamId0,athleteId1) {
+          return _wA({method:"GET", url:"/" + "coach/team/" + encodeURIComponent((function(k,v) {return v})("teamId", teamId0)) + "/athlete/" + encodeURIComponent((function(k,v) {return v})("athleteId", athleteId1)) + "/remove"})
+        }
+      ;
+_nS('controllers.pcs.SettingsTask'); _root['controllers']['pcs']['SettingsTask']['removeAthlete'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "coach/settings/athlete/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/remove"})
+        }
+      ;
+_nS('controllers.pcs.group.TeamTask'); _root['controllers']['pcs']['group']['TeamTask']['invite'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "coach/team/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/invite"})
+        }
+      ;
+_nS('controllers.pcs.group.TeamTask'); _root['controllers']['pcs']['group']['TeamTask']['remove'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "coach/team/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/remove"})
+        }
+      ;
+_nS('controllers.pcs.group.TeamTask'); _root['controllers']['pcs']['group']['TeamTask']['athletes'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "coach/team/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/athletes"})
+        }
+      ;
+_nS('controllers.pcs.ProfileTask'); _root['controllers']['pcs']['ProfileTask']['removeAthleteFromOrganisation'] = 
+        function(organisationId0,userId1) {
+          return _wA({method:"POST", url:"/" + "coach/organisation/" + encodeURIComponent((function(k,v) {return v})("organisationId", organisationId0)) + "/user/" + encodeURIComponent((function(k,v) {return v})("userId", userId1)) + "/remove"})
+        }
+      ;
+_nS('controllers.pcs.SettingsTask'); _root['controllers']['pcs']['SettingsTask']['athletes'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "coach/settings/athletes"})
+        }
+      ;
+_nS('controllers.pcs.reroute.DiaryRouteTask'); _root['controllers']['pcs']['reroute']['DiaryRouteTask']['getSummaryDataAsJson'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "coach/progress/getSummaryDataAsJson"})
+        }
+      ;
+_nS('controllers.team.reroute.RecoveryRouteTask'); _root['controllers']['team']['reroute']['RecoveryRouteTask']['index'] = 
+        function(teamMemberId0,date1,period2) {
+          return _wA({method:"GET", url:"/" + "team/recovery/" + encodeURIComponent((function(k,v) {return v})("teamMemberId", teamMemberId0)) + "/" + encodeURIComponent((function(k,v) {return v})("date", date1)) + "/" + encodeURIComponent((function(k,v) {return v})("period", period2))})
+        }
+      ;
+_nS('controllers.team.reroute.FitnessTestRouteTask'); _root['controllers']['team']['reroute']['FitnessTestRouteTask']['list'] = 
+        function(userId0,date1,toFuture2) {
+          return _wA({method:"GET", url:"/" + "team/training/test/fitness/" + encodeURIComponent((function(k,v) {return v})("userId", userId0)) + "/list" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("date", date1), (function(k,v){return k+'='+(!!v)})("toFuture", toFuture2)])})
+        }
+      ;
+_nS('controllers.team.reroute.OrthostaticTestRouteTask'); _root['controllers']['team']['reroute']['OrthostaticTestRouteTask']['list'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "team/training/test/orthostatic/list/" + encodeURIComponent((function(k,v) {return v})("id", id0))})
+        }
+      ;
+_nS('controllers.team.reroute.OrthostaticTestRouteTask'); _root['controllers']['team']['reroute']['OrthostaticTestRouteTask']['period'] = 
+        function(period0) {
+          return _wA({method:"GET", url:"/" + "team/training/test/orthostatic/period/" + encodeURIComponent((function(k,v) {return v})("period", period0))})
+        }
+      ;
+_nS('controllers.team.reroute.OrthostaticTestRouteTask'); _root['controllers']['team']['reroute']['OrthostaticTestRouteTask']['details'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "team/training/test/orthostatic/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/details"})
+        }
+      ;
+_nS('controllers.team.reroute.VerticalJumpTestRouteTask'); _root['controllers']['team']['reroute']['VerticalJumpTestRouteTask']['list'] = 
+        function(userId0) {
+          return _wA({method:"GET", url:"/" + "team/training/test/verticaljump/" + encodeURIComponent((function(k,v) {return v})("userId", userId0)) + "/list"})
+        }
+      ;
+_nS('controllers.team.reroute.ContinuousJumpTestRouteTask'); _root['controllers']['team']['reroute']['ContinuousJumpTestRouteTask']['list'] = 
+        function(userId0) {
+          return _wA({method:"GET", url:"/" + "team/training/test/continuousjump/" + encodeURIComponent((function(k,v) {return v})("userId", userId0)) + "/list"})
+        }
+      ;
+_nS('controllers.team.reroute.ContinuousJumpTestRouteTask'); _root['controllers']['team']['reroute']['ContinuousJumpTestRouteTask']['details'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "team/training/test/continuousjump/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/details"})
+        }
+      ;
+_nS('controllers.favorites.FavoriteTrainingTargetsTask'); _root['controllers']['favorites']['FavoriteTrainingTargetsTask']['addRouteFromFile'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "api/favorites/trainingTargets/importRoute"})
+        }
+      ;
+_nS('controllers.utils.DateUtilsTask'); _root['controllers']['utils']['DateUtilsTask']['days'] = 
+        function(month0,year1) {
+          return _wA({method:"GET", url:"/" + "utils/date/days" + _qS([(month0 == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("month", month0)), (year1 == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("year", year1))])})
+        }
+      ;
+_nS('controllers.oauth2.OAuth2AuthorizationEndpoint'); _root['controllers']['oauth2']['OAuth2AuthorizationEndpoint']['cancel'] = 
+        function(response_type0,client_id1,redirect_uri2,scope3,state4) {
+          return _wA({method:"GET", url:"/" + "oauth2/cancel" + _qS([(function(k,vs){var l=vs&&vs.length,r=[],i=0;for(;i<l;i++){r[i]=(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,vs[i])}return r.join('&')})("response_type", response_type0), (function(k,vs){var l=vs&&vs.length,r=[],i=0;for(;i<l;i++){r[i]=(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,vs[i])}return r.join('&')})("client_id", client_id1), (function(k,vs){var l=vs&&vs.length,r=[],i=0;for(;i<l;i++){r[i]=(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,vs[i])}return r.join('&')})("redirect_uri", redirect_uri2), (function(k,vs){var l=vs&&vs.length,r=[],i=0;for(;i<l;i++){r[i]=(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,vs[i])}return r.join('&')})("scope", scope3), (function(k,vs){var l=vs&&vs.length,r=[],i=0;for(;i<l;i++){r[i]=(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,vs[i])}return r.join('&')})("state", state4)])})
+        }
+      ;
+_nS('controllers.social.oauth.OAuthTask'); _root['controllers']['social']['oauth']['OAuthTask']['unlinkAccount'] = 
+        function(serviceName0) {
+          return _wA({method:"POST", url:"/" + "social/account-link/" + encodeURIComponent((function(k,v) {return v})("serviceName", serviceName0))})
+        }
+      ;
+_nS('controllers.social.oauth.OAuthTask'); _root['controllers']['social']['oauth']['OAuthTask']['register'] = 
+        function(serviceName0,type1,id2) {
+          return _wA({method:"GET", url:"/" + "social/account-link/" + encodeURIComponent((function(k,v) {return v})("serviceName", serviceName0)) + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("type", type1), (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("id", id2)])})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['shareTrainingSession'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "social/training/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/share"})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['shareActivity'] = 
+        function(id0) {
+          return _wA({method:"POST", url:"/" + "social/activity/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/share"})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['openGraphTrainingSession'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "social/training/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/share"})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['getFeedItemVisibility'] = 
+        function(id0) {
+          return _wA({method:"GET", url:"/" + "social/training/" + encodeURIComponent((function(k,v) {return v})("id", id0)) + "/visibility"})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['index'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "feed"})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['indexFilter'] = 
+        function(type0,owner1) {
+          return _wA({method:"GET", url:"/" + "feed/filter" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("type", type0), (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("owner", owner1)])})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['terminateFollow'] = 
+        function(userId0) {
+          return _wA({method:"POST", url:"/" + "social/terminateFollow" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("userId", userId0)])})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['loadMoreOlderThanTimestampFilter'] = 
+        function(timestamp0,index1,type2,owner3) {
+          return _wA({method:"GET", url:"/" + "feed/filter/more" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("timestamp", timestamp0), (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("index", index1), (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("type", type2), (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("owner", owner3)])})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['acceptClubInstructorInvitation'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "social/notifications/clubInstructorInvite/accept"})
+        }
+      ;
+_nS('controllers.social.SocialTask'); _root['controllers']['social']['SocialTask']['declineClubInstructorInvitation'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "social/notifications/clubInstructorInvite/decline"})
+        }
+      ;
+_nS('controllers.progress.ProgressTask'); _root['controllers']['progress']['ProgressTask']['getSummaryDataAsJson'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "progress/getSummaryDataAsJson"})
+        }
+      ;
+_nS('controllers.progress.ProgressTask'); _root['controllers']['progress']['ProgressTask']['getProgressViewSummaryAsJson'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "progress/getProgressViewSummaryAsJson"})
+        }
+      ;
+_nS('controllers.training.ProfileTask'); _root['controllers']['training']['ProfileTask']['getSummaryDataAsJson'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "training/profiles/getSummaryDataAsJson"})
+        }
+      ;
+_nS('controllers.ApplicationTask'); _root['controllers']['ApplicationTask']['getUpdatesFeed'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "updates/feed"})
+        }
+      ;
+_nS('controllers.emailVerification.EmailVerificationTask'); _root['controllers']['emailVerification']['EmailVerificationTask']['sendVerificationEmail'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "api/email-verification/resend"})
+        }
+      ;
+})(jsRoutes)

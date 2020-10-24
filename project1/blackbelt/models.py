@@ -39,20 +39,26 @@ class Student(models.Model):
     email = models.EmailField(verbose_name="e-mail")
     groups = models.ManyToManyField(Group)
     notes = models.TextField(verbose_name="Adnotacje")
-
-
-class StudentBelt(models.Model):
-    belt = models.CharField(
+    belt = models.IntegerField(
         choices=BELT_SYSTEM, default=1, max_length=64, verbose_name="Pas"
     )
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    promotion_date = models.DateTimeField(auto_now=True, verbose_name="Data otrzymania")
+
+    def __str__(self):
+        return self.name
+
+
+# class StudentBelt(models.Model):
+#     belt = models.CharField(
+#         choices=BELT_SYSTEM, default=1, max_length=64, verbose_name="Pas"
+#     )
+#     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+#     promotion_date = models.DateTimeField(auto_now=True, verbose_name="Data otrzymania")
 
 
 class PresenceList(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    day = models.DateField()
-    present = models.BooleanField(null=True)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="Uczeń")
+    day = models.DateField(verbose_name="Data")
+    present = models.BooleanField(null=True, verbose_name="obecny")
 
 
 class Payments(models.Model):

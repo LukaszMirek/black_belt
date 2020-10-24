@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block title %}{{ student.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ student.name }}</h1>
+<p>Telefon: {{ student.phone }}</p>
+<p>email: {{ student.email }}</p>
+<p>Grupa: {% for group in student.groups.all %} {{group}} {% endfor %}</p>
+<p>Pas: {{ student.get_belt_display }}</p>
+<p>Notatki: {{ student.notes }}</p>
+<p>Opłaty:</p>
+<p>Obecności:</p>
+<a href="/student_edit/{{ student.id }}"><button>Edytuj</button></a>
+<a href="/student_delete/{{ student.id }}"><button>Usuń</button></a>
+{% endblock %}

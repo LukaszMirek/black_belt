@@ -4,9 +4,16 @@
 
 {% block content %}
 <p>EDYTUJ UCZNIA:</p>
+
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table>
+    {{ form.as_table }}
+    {% for formset in inlines %}
+    {{ formset.as_p }}
+    {% endfor %}
+    </table>
     <input type="submit" value="zapisz">
 </form>
+
 {% endblock %}

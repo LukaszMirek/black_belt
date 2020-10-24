@@ -32,6 +32,9 @@ body {
 .sidenav a:hover {
   color: #f1f1f1;
 }
+.sidenav button:hover {
+  color: #000000;
+}
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
@@ -48,12 +51,16 @@ body {
 <body>
 
 <div class="sidenav">
+<a href="/main/">
 <img  src="{% static 'bb.png' %}" alt="logo" width=150 /> 
+</a>
   <a href="/groups/">Grupy</a>
   <a href="/students/">Uczniowie</a>
   <a href="/group_add/">Dodaj grupę</a>
   <a href="/student_add/">Dodaj ucznia</a>
-  <a href="{% url 'logout' %}">Wyloguj</a>
+  <a href="/presence/">Obecności</a>
+  <a href="/payments/">Opłaty</a>
+  <a href="{% url 'logout' %}"><button>Wyloguj</button></a>
 </div>
 
 <div class="main">

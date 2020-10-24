@@ -25,6 +25,10 @@ from blackbelt.views import (
     StudentEditView,
     LogoutView,
     GroupEditView,
+    StudentDetailsView,
+    GroupDetailsView,
+    PresenceView,
+    StudentDeleteView,
 )
 
 urlpatterns = [
@@ -38,4 +42,15 @@ urlpatterns = [
     path("student_edit/<pk>", StudentEditView.as_view(), name="student-edit"),
     path("logout/", LogoutView.as_view(), name="logout"),
     path("group_edit/<pk>", GroupEditView.as_view(), name="group-edit"),
+    path(
+        "student_details/<int:student_id>",
+        StudentDetailsView.as_view(),
+        name="student-details",
+    ),
+    path(
+        "group_details/<int:group_id>", GroupDetailsView.as_view(), name="group-details"
+    ),
+    path("presence/", PresenceView.as_view(), name="presence"),
+    path("student_edit/<pk>", StudentEditView.as_view(), name="student-edit"),
+    path("student_delete/<pk>", StudentDeleteView.as_view(), name="student-delete"),
 ]

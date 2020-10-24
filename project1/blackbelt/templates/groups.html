@@ -2,11 +2,44 @@
 
 {% block title %}groups{% endblock %}
 
-{% block content %}
+{% comment %} {% block content %}
 <h1>GRUPY:</h1>
 <ul>
 {% for group in groups %}
-<li>{{ group.name }}, TRENER: {{ group.trainer }} <a href="/group_edit/{{ group.id }}">edytuj</a></li>
+<li><a href="/group_details/{{ group.id }}">{{ group.name }}</a>, TRENER: {{ group.trainer }} <a href="/group_edit/{{ group.id }}">edytuj</a></li>
 {% endfor %}
 {% endblock %}
-</ul>
+</ul> {% endcomment %}
+{% block content %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<table>
+  <tr>
+    <th>Grupa</th>
+    <th>Trener</th>
+    <th></th>
+  </tr>
+{% for group in groups %} 
+  <tr>
+    <td><a href="/group_details/{{ group.id }}">{{ group.name }}</a></td>
+    <td>{{ group.trainer }}</td>
+    <td><a href="/group_edit/{{ group.id }}">edytuj</a></td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

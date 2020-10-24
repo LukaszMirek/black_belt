@@ -1,12 +1,36 @@
 {% extends "main.html" %}
 
-{% block title %}groups{% endblock %}
-
+{% block title %}students{% endblock %}
 {% block content %}
-<h1>UCZNIOWIE:</h1>
-<ul>
-{% for student in students %}
-<li>{{ student.name }}, Grupa: {{ student.groups }} <a href="/student_edit/{{ student.id }}">edytuj</a></li>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<table>
+  <tr>
+    <th>Uczeń</th>
+    <th>Grupa</th>
+    <th></th>
+  </tr>
+{% for student in students %} 
+  <tr>
+    <td><a href="/student_details/{{ student.id }}">{{ student.name }}</a></td>
+    <td>{% for group in student.groups.all %} {{group}} {% endfor %}</td>
+    <td><a href="/student_edit/{{ student.id }}">edytuj</a></td>
+  </tr>
 {% endfor %}
+</table>
 {% endblock %}
-</ul>

@@ -1,0 +1,2 @@
+$(function(){!function(){$("body").on("click","#exportTrainingSessionPopup",function(n){n.preventDefault(),Modal.open("/training/analysis/"+$(this).data("training-session-id")+"/export",{success:function(n){},error:function(n){$.flashMessage(n.responseText)}})})}()});
+//# sourceMappingURL=exportTrainingSession.min.js.map
